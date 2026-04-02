@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPP Boutique — Available Items</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f5f2ee; color: #1a1a1a; padding: 24px 16px; }
+  .container { max-width: 680px; margin: 0 auto; }
+  .header { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #e0dbd4; }
+  h1 { font-size: 26px; font-weight: 600; margin-bottom: 2px; }
+  .subtitle { font-size: 13px; color: #888; }
+  .toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .toolbar label { font-size: 14px; color: #555; font-weight: 500; }
+  select { font-family: inherit; font-size: 14px; color: #1a1a1a; background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 8px 12px; outline: none; }
+  .count { font-size: 13px; color: #888; margin-left: auto; }
+  .sections { display: flex; flex-direction: column; gap: 20px; }
+  .type-section { background: #fff; border: 1px solid #e0dbd4; border-radius: 12px; overflow: hidden; }
+  .type-section.hidden { display: none; }
+  .type-header { padding: 12px 18px; font-size: 16px; font-weight: 600; background: #fff; border-bottom: 2px solid #e0dbd4; color: #2e5e3e; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { padding: 8px 18px; text-align: left; font-size: 11px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; border-bottom: 1px solid #f0ece6; }
+  tbody tr { border-top: 1px solid #f0ece6; transition: background 0.1s; }
+  tbody tr:first-child { border-top: none; }
+  tbody tr:hover { background: #faf8f5; }
+  tbody td { padding: 10px 18px; font-size: 14px; }
+  .style-badge { display: inline-block; font-size: 12px; font-weight: 500; padding: 2px 9px; border-radius: 20px; }
+  .style-badge.Masculine { background: #e8f0fb; color: #2a4d8f; }
+  .style-badge.Feminine { background: #fce8f3; color: #8f2a6a; }
+  .style-badge.Unisex { background: #f0ece6; color: #5a4f44; }
+  .empty-msg { text-align: center; color: #aaa; font-size: 14px; padding: 2rem; background: #fff; border: 1px solid #e0dbd4; border-radius: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>IPP Boutique</h1>
+    <div class="subtitle">Available items &mdash; updated April 2, 2026</div>
+  </div>
+  <div class="toolbar">
+    <label>Style:</label>
+    <select id="fstyle" onchange="filterRows()">
+      <option value="">All styles</option>
+      <option>Masculine</option>
+      <option>Feminine</option>
+      <option>Unisex</option>
+    </select>
+    <label>Size:</label>
+    <select id="fsize" onchange="filterRows()">
+      <option value="">All sizes</option><option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="2XL">2XL</option><option value="6">6</option><option value="7">7</option><option value="7W">7W</option>
+    </select>
+    <span class="count" id="count">39 items available</span>
+  </div>
+  <div class="sections" id="sections">
+    
+      <div class="type-section" data-type="Dress">
+        <div class="type-header">Dress</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="S" data-style="Feminine" data-type="Dress">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>S</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="2XL" data-style="Feminine" data-type="Dress">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>2XL</td>
+        <td>Beige</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Jackets">
+        <div class="type-header">Jackets</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="M" data-style="Feminine" data-type="Jackets">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="M" data-style="Feminine" data-type="Jackets">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Gray</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Jackets">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Green</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Jackets">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Purple</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Jackets">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Brown</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Pants">
+        <div class="type-header">Pants</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Pants">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Black stripes</td>
+      </tr><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Pants">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Houndstooth</td>
+      </tr><tr class="item-row" data-size="S" data-style="Feminine" data-type="Pants">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>S</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Pants">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Green</td>
+      </tr><tr class="item-row" data-size="2XL" data-style="Feminine" data-type="Pants">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>2XL</td>
+        <td>Black</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Shirt (long sleeve)">
+        <div class="type-header">Shirt (long sleeve)</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Brown</td>
+      </tr><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="S" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>S</td>
+        <td>Gray</td>
+      </tr><tr class="item-row" data-size="S" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>S</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="M" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="M" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Gray</td>
+      </tr><tr class="item-row" data-size="M" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Brown</td>
+      </tr><tr class="item-row" data-size="M" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Blue</td>
+      </tr><tr class="item-row" data-size="L" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>L</td>
+        <td>White</td>
+      </tr><tr class="item-row" data-size="L" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>L</td>
+        <td>Blue</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Red</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Shirt (long sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Orange</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Shirt (short sleeve)">
+        <div class="type-header">Shirt (short sleeve)</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Black/White</td>
+      </tr><tr class="item-row" data-size="S" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>S</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="M" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>M</td>
+        <td>Beige</td>
+      </tr><tr class="item-row" data-size="L" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>L</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="L" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>L</td>
+        <td>Blue</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Orange</td>
+      </tr><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Blue</td>
+      </tr><tr class="item-row" data-size="2XL" data-style="Feminine" data-type="Shirt (short sleeve)">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>2XL</td>
+        <td>Orange</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Shoes">
+        <div class="type-header">Shoes</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="6" data-style="Feminine" data-type="Shoes">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>6</td>
+        <td>Black</td>
+      </tr><tr class="item-row" data-size="7" data-style="Feminine" data-type="Shoes">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>7</td>
+        <td>Brown</td>
+      </tr><tr class="item-row" data-size="7W" data-style="Feminine" data-type="Shoes">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>7W</td>
+        <td>Green</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Skirt">
+        <div class="type-header">Skirt</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Skirt">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Black</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Spaghetti Strap">
+        <div class="type-header">Spaghetti Strap</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="XS" data-style="Feminine" data-type="Spaghetti Strap">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XS</td>
+        <td>Black</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div class="type-section" data-type="Tank top">
+        <div class="type-header">Tank top</div>
+        <table>
+          <thead><tr><th>Style</th><th>Size</th><th>Color</th></tr></thead>
+          <tbody class="type-tbody"><tr class="item-row" data-size="XL" data-style="Feminine" data-type="Tank top">
+        <td><span class="style-badge Feminine">Feminine</span></td>
+        <td>XL</td>
+        <td>Pink</td>
+      </tr></tbody>
+        </table>
+      </div>
+  </div>
+  <div id="empty-msg" class="empty-msg" style="display:none;">No items available matching these filters.</div>
+</div>
+<script>
+function filterRows() {
+  const size = document.getElementById("fsize").value;
+  const style = document.getElementById("fstyle").value;
+  let totalVisible = 0;
+  document.querySelectorAll(".type-section").forEach(section => {
+    let sectionVisible = 0;
+    section.querySelectorAll(".item-row").forEach(r => {
+      const show = (!size || r.dataset.size === size) && (!style || r.dataset.style === style);
+      r.style.display = show ? "" : "none";
+      if (show) sectionVisible++;
+    });
+    section.classList.toggle("hidden", sectionVisible === 0);
+    totalVisible += sectionVisible;
+  });
+  document.getElementById("count").textContent = totalVisible + " item" + (totalVisible !== 1 ? "s" : "") + " available";
+  document.getElementById("empty-msg").style.display = totalVisible === 0 ? "block" : "none";
+  document.getElementById("sections").style.display = totalVisible === 0 ? "none" : "";
+}
+</script>
+</body>
+</html>
